@@ -10,25 +10,25 @@ pipeline {
 
         stage('Install Client Dependencies') {
             steps {
-                sh 'cd client && npm install'
+                bat 'cd client && npm install'
             }
         }
 
         stage('Install Server Dependencies') {
             steps {
-                sh 'cd server && npm install'
+                bat 'cd server && npm install'
             }
         }
 
         stage('Build Client') {
             steps {
-                sh 'cd client && npm run build'
+                bat 'cd client && npm run build'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh './deploy.sh'
+                bat '.\\deploy.bat' // Assuming you have a deploy.bat for Windows
             }
         }
     }
